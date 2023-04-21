@@ -13,3 +13,6 @@ class Order(models.Model):
         max_length = 15,
         default = "NEW",
     )
+    
+    def __str__(self):
+        return f"{self.name}, {self.status}"
