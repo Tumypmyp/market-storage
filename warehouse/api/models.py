@@ -5,7 +5,7 @@ class Order(models.Model):
     STATUS_CHOICES = [
         ("NEW", "New"),
         ("IN_PROCESS", "In Process"),
-        ("COMPLITED", "Complited"),
+        ("COMPLETED", "Completed"),
     ]
     name = models.CharField(max_length=200)
     status = models.CharField(
