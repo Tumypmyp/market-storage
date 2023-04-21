@@ -29,7 +29,7 @@ class OrderAdmin(admin.ModelAdmin):
         response = requests.post(api_url, data=data, verify=False)
 
         # Redirect back to the change list view
-        return HttpResponseRedirect(reverse('admin:example_order_changelist'))
+        return HttpResponseRedirect(reverse('admin:api_order_changelist'))
 
 
 admin.site.register(Order, OrderAdmin)
