@@ -8,8 +8,7 @@ import requests
 
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('name', 'status')
-    
+
     def get_readonly_fields(self, request, obj=None):
         readonly_fields = super().get_readonly_fields(request, obj)
         if obj:  # editing an existing order
@@ -22,7 +21,7 @@ class OrderAdmin(admin.ModelAdmin):
         
         # Send API request to the other server
         api_url = 'http://localhost:8001/api/order/add/'
-        data = {
+        data = {    
             'name': obj.name,
             'status': obj.status,
         }

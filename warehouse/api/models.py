@@ -7,6 +7,7 @@ class Order(models.Model):
         ("IN_PROCESS", "In Process"),
         ("COMPLETED", "Completed"),
     ]
+    
     name = models.CharField(max_length=200)
     status = models.CharField(
         choices = STATUS_CHOICES,
@@ -15,4 +16,4 @@ class Order(models.Model):
     )
     
     def __str__(self):
-        return f"{self.name}, {self.status}"
+        return f"{self.name} ({self.get_status_display()})"

@@ -9,3 +9,4 @@ class OrderList(ListAPIView):
 class OrderCreate(CreateAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
+    lookup_field = 'id'
