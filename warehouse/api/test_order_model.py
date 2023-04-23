@@ -6,7 +6,7 @@ class OrderModelTestCase(TestCase):
         self.order = Order.objects.create(name='Test Order', status='NEW')
     
     def test_order_str_method(self):
-        self.assertEqual(str(self.order), 'Test Order, NEW')
+        self.assertEqual(str(self.order), 'Test Order (New)')
     
     def test_order_name_max_length(self):
         max_length = self.order._meta.get_field('name').max_length

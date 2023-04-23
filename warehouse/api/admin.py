@@ -17,12 +17,12 @@ class OrderAdmin(admin.ModelAdmin):
         # Send API request to the other server
         api_url = f'http://localhost:8000/api/order/update/{obj.id}/'
         data = {
-            'id' : id,
+            'id' : obj.id,
             'name': obj.name,
             'status': obj.status,
         }
+        
         response = requests.put(api_url, data=data)
-
         # Redirect back to the change list view
         return HttpResponseRedirect(reverse('admin:api_order_changelist'))
 
