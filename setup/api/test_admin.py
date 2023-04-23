@@ -20,6 +20,6 @@ class OrderAdminTestCase(TestCase):
             self.assertEqual(response.status_code, 200)
             self.assertContains(response, 'Order was changed successfully.')
 
-            mock_post.assert_called_once_with('http://localhost:8001/api/order/add/',
+            mock_post.assert_called_once_with('http://localhost:8000/api/order/add/',
                                               data={'name': 'Updated Order', 'status': 'Completed'},
                                               verify=False)

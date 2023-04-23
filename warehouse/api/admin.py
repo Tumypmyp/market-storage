@@ -8,7 +8,10 @@ import requests
 
 
 class OrderAdmin(admin.ModelAdmin):
-    readonly_fields = ('name', )
+    readonly_fields = ('id', 'name', )
+
+    def has_add_permission(self, request):
+        return False
 
     def save_model(self, request, obj, form, change):
         # Call the parent class's save_model() method to save the object
@@ -22,9 +25,12 @@ class OrderAdmin(admin.ModelAdmin):
             'status': obj.status,
         }
         
-        response = requests.put(api_url, data=data)
-        # Redirect back to the change list view
-        return HttpResponseRedirect(reverse('admin:api_order_changelist'))
-
+         
+        try:
+            response = requests.put(api_url, data=data, verify=False)
+            response.raise_for_status()
+        except requests.exceptions.RequestException as e:
+            # Show warning message if the API call failed
+            self.message_user(request, 'Warning: Failed to update order on storage side: {}'.format(str(e)), level='warning')
 
 admin.site.register(Order, OrderAdmin)

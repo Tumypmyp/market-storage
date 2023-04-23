@@ -14,3 +14,7 @@ Run the following command to start the applications:
 docker compose up
 ```
 This will start the Django development server, and you can access the applications by visiting http://localhost:9000/ (for market)  and http://localhost:9001/ (for storage) in your web browser. You can specify ports in `docker-compose.yaml`.
+
+<!-- move models to app core
+    rename apps
+    id for orders -->
