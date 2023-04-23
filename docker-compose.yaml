@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+  market:
+    restart: always
+    build: 
+      context: .
+      dockerfile: requirements.Dockerfile
+    volumes:
+      - ./setup:/app
+    ports:
+      - "9000:8000"
+  
+  storage:
+    restart: always
+    build:
+      context: .
+      dockerfile: requirements.Dockerfile
+    volumes:
+      - ./warehouse:/app
+    ports:
+      - "9001:8000"
+

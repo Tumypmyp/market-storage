@@ -15,7 +15,7 @@ class OrderAdmin(admin.ModelAdmin):
         super().save_model(request, obj, form, change)
         
         # Send API request to the other server
-        api_url = f'http://localhost:8000/api/order/update/{obj.id}/'
+        api_url = f'http://market:8000/api/order/update/{obj.id}/'
         data = {
             'id' : obj.id,
             'name': obj.name,

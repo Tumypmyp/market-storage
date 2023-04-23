@@ -20,7 +20,7 @@ class OrderAdmin(admin.ModelAdmin):
         super().save_model(request, obj, form, change)
         
         # Send API request to the other server
-        api_url = 'http://localhost:8001/api/order/add/'
+        api_url = 'http://storage:8000/api/order/add/'
         data = {    
             'name': obj.name,
             'status': obj.status,
