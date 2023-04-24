@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: requirements.Dockerfile
     volumes:
-      - ./setup:/app
+      - ./market:/app
     ports:
       - "9000:8000"
   
@@ -17,7 +17,7 @@ services:
       context: .
       dockerfile: requirements.Dockerfile
     volumes:
-      - ./warehouse:/app
+      - ./storage:/app
     ports:
       - "9001:8000"
 
