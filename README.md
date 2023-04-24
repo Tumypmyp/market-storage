@@ -14,15 +14,17 @@ Run the following command to start the applications:
 docker compose up
 ```
 
-Then add superuser in both projects: market and storage:
+Initialize databasein both projects: market and storage:
 ```
-python manage.py createsuperuser
+docker-compose exec market python3 manage.py migrate --run-syncdb
+docker-compose exec storage python3 manage.py migrate --run-syncdb
 ```
-Then init database:
+Then add superuser:
 ```
-docker-compose exec market python3 manage.py migrate
-docker-compose exec storage python3 manage.py migrate
+docker-compose exec market python3 manage.py createsuperuser
+docker-compose exec storage python3 manage.py createsuperuser
 ```
+
 
 
 

@@ -1,3 +1,4 @@
+import uuid
 from django.db import models
 
 
@@ -12,14 +13,13 @@ class Order(models.Model):
         (COMPLETED, 'Completed'),
     ]
 
-    id = models.AutoField(primary_key=True)
+    id = models.IntegerField(primary_key=True, unique=True)
     name = models.CharField(max_length=200)
     status = models.CharField(
         choices = STATUS_CHOICES,
         max_length = 15,
-        default = "NEW",
+        default = NEW,
     )
     
     def __str__(self):
         return f"{self.name} ({self.get_status_display()}) #{self.id}"
-        

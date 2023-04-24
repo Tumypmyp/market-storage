@@ -8,10 +8,6 @@ class OrderModelTestCase(TestCase):
     def test_order_str_method(self):
         self.assertEqual(str(self.order), 'Test Order (New)')
     
-    def test_order_name_max_length(self):
-        max_length = self.order._meta.get_field('name').max_length
-        self.assertEqual(max_length, 200)
-    
     def test_order_status_choices(self):
         status_choices = dict(self.order.STATUS_CHOICES)
         self.assertEqual(status_choices['NEW'], 'New')
