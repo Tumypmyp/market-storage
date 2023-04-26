@@ -30,6 +30,4 @@ docker-compose exec storage python3 manage.py createsuperuser
 
 This will start the Django development server, and you can access the applications by visiting http://localhost:9000/admin/ (for market)  and http://localhost:9001/admin/ (for storage) in your web browser. You can specify ports in `docker-compose.yaml`.
 
-<!-- move models to app core
-    rename apps
-    id for orders -->
+<!-- move models to new app core -->

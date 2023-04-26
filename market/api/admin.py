@@ -31,7 +31,6 @@ class OrderAdmin(admin.ModelAdmin):
             response = requests.post(api_url, data=data, verify=False)
             response.raise_for_status()
         except requests.exceptions.RequestException as e:
-            # Show warning message if the API call failed
             self.message_user(request, 'Warning: Failed to update order on storage side: {}'.format(str(e)), level='warning')
 
 
